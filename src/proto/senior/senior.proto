@@ -1,0 +1,21 @@
+syntax = "proto3";
+package proto.senior;
+
+import "go-study/src/proto/quick_start/person.proto";
+
+
+// 定义Hello服务
+service Hello {
+    // 定义SayHello方法
+    rpc SayHello(HelloRequest) returns (HelloResponse) {}
+}
+
+// HelloResponse 响应结构
+message HelloResponse {
+    proto.quick_start.Person people = 1;
+}
+
+// HelloRequest 请求结构
+message HelloRequest {
+    proto.quick_start.Person people = 1;
+}

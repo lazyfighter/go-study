@@ -1,0 +1,18 @@
+syntax = "proto3";
+package proto.echo;
+
+// 定义Hello服务
+service Echo {
+    // 定义SayHello方法
+    rpc echo(Request) returns (Response) {}
+}
+
+
+message Request{
+    string text = 1;
+}
+
+
+message Response{
+    string text = 1;
+}
