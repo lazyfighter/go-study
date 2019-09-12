@@ -1,7 +1,7 @@
 package ratelimit_test
 
 import (
-	rl "go-study/src/ratelimit"
+	rl "go-study/ratelimit"
 	"go.uber.org/ratelimit"
 	"log"
 	"testing"

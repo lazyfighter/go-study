@@ -7,7 +7,7 @@ import (
 	context "context"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
-	quick_start "go-study/src/proto/quick_start"
+	quick_start "go-study/protock_start"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
