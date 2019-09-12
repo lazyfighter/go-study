@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"go-study/protoo"
+	"go-study/proto/echo"
 	"google.golang.org/grpc"
 	"log"
 	"net"

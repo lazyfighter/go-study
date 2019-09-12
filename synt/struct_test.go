@@ -19,3 +19,11 @@ func TestConst(t *testing.T) {
 	const aa = 11
 	log.Println(aa)
 }
+
+func TestDefer(t *testing.T) {
+	defer func() {
+		log.Println("defer")
+	}()
+
+	log.Println("start")
+}

@@ -1,7 +1,7 @@
 syntax = "proto3";
 package proto.senior;
 
-import "go-study/src/proto/quick_start/person.proto";
+import "go-study/proto/quick_start/person.proto";
 
 
 // 定义Hello服务

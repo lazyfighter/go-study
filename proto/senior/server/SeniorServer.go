@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
-	"go-study/protock_start"
-	"go-study/protoior"
+	"go-study/proto/quick_start"
+	"go-study/proto/senior"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/grpclog"
 	"log"
