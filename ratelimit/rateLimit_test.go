@@ -1,8 +1,10 @@
 package ratelimit_test
 
 import (
+	"context"
 	rl "go-study/ratelimit"
 	"go.uber.org/ratelimit"
+	"golang.org/x/time/rate"
 	"log"
 	"testing"
 	"time"
@@ -37,4 +39,37 @@ func TestNewTokenBucket(t *testing.T) {
 		}
 	}
 
+}
+
+func TestGoLangLimit(t *testing.T) {
+	limit := rate.Limit(10)
+	limiter := rate.NewLimiter(limit, 100)
+	for i := 1; i < 10; i++ {
+		go func() {
+			for {
+				if limiter.Allow() {
+					log.Println("allow")
+				}
+			}
+		}()
+	}
+	time.Sleep(time.Minute)
+}
+
+func TestGolangWait(t *testing.T) {
+	log.SetFlags(log.Lmicroseconds)
+	limit := rate.Limit(1)
+	count := 1
+	limiter := rate.NewLimiter(limit, 10)
+	for {
+		timeout, _ := context.WithTimeout(context.Background(), time.Duration(100000*time.Millisecond))
+		if limiter.Wait(timeout) == nil {
+			count += 1
+			log.Println(count)
+		} else {
+			log.Println("time out")
+		}
+	}
+
+	time.Sleep(3 * time.Second)
 }
