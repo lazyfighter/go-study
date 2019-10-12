@@ -58,9 +58,9 @@ func TestGoLangLimit(t *testing.T) {
 
 func TestGolangWait(t *testing.T) {
 	log.SetFlags(log.Lmicroseconds)
-	limit := rate.Limit(1)
+	limit := rate.Limit(10)
 	count := 1
-	limiter := rate.NewLimiter(limit, 10)
+	limiter := rate.NewLimiter(limit, 1)
 	for {
 		timeout, _ := context.WithTimeout(context.Background(), time.Duration(100000*time.Millisecond))
 		if limiter.Wait(timeout) == nil {
